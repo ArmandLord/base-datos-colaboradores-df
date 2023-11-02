@@ -3,6 +3,7 @@ import { Listado } from "./components/listado/Listado";
 // obtener data de archivo baseColaboradores
 import { baseColaboradores } from "./db/BaseColaboradores";
 import { useState } from "react";
+import { Formulario } from "./components/formulario/Formulario";
 
 const App = () => {
   // almacenar data en un hook
@@ -26,7 +27,7 @@ const App = () => {
           <Col md={3} className="">
             <h2>Agregar colaborador</h2>
             {/* Crear componente Formulario */}
-            <h1>Formulario</h1>
+            <Formulario></Formulario>
             {/* Crear componente Alerta */}
           </Col>
         </Row>

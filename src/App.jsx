@@ -4,10 +4,16 @@ import { Listado } from "./components/listado/Listado";
 import { baseColaboradores } from "./db/BaseColaboradores";
 import { useState } from "react";
 import { Formulario } from "./components/formulario/Formulario";
+import { Alert } from "./components/alert/Alert";
 
 const App = () => {
   // almacenar data en un hook
   const [colaboradores, setColaboradores] = useState(baseColaboradores); // []
+
+  const [alert, setAlert] = useState({
+    color: "",
+    mensaje: "",
+  });
 
   return (
     <>
@@ -27,8 +33,8 @@ const App = () => {
           <Col md={3} className="">
             <h2>Agregar colaborador</h2>
             {/* Crear componente Formulario */}
-            <Formulario></Formulario>
-            {/* Crear componente Alerta */}
+            <Formulario setAlert={setAlert} />
+            <Alert>{alert.mensaje}</Alert>
           </Col>
         </Row>
       </div>

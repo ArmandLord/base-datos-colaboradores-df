@@ -2,9 +2,9 @@ import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 
-export const Formulario = ({ setAlert }) => {
+export const Formulario = ({ setAlert, setColaboradores, colaboradores }) => {
   const [formulario, setFormulario] = useState({
-    email: "",
+    correo: "",
     nombre: "",
     edad: "",
     cargo: "",
@@ -22,7 +22,7 @@ export const Formulario = ({ setAlert }) => {
 
     if (
       formulario.nombre == "" ||
-      formulario.email == "" ||
+      formulario.correo == "" ||
       formulario.edad == "" ||
       formulario.cargo == "" ||
       formulario.telefono == ""
@@ -33,6 +33,18 @@ export const Formulario = ({ setAlert }) => {
       });
       return;
     }
+
+    setFormulario({
+      correo: "",
+      nombre: "",
+      edad: "",
+      cargo: "",
+      telefono: "",
+    });
+    // Agregar registro
+    // id unico / UUID
+    const newColaborador = { ...formulario, id: "asdasd" };
+    setColaboradores([...colaboradores, newColaborador]);
   };
 
   return (
@@ -43,11 +55,12 @@ export const Formulario = ({ setAlert }) => {
           type="text"
           placeholder="Nombre"
           onChange={onchange}
+          value={formulario.nombre}
         />
         <Form.Control
-          name="email"
+          name="correo"
           type="email"
-          placeholder="Email"
+          placeholder="correo"
           onChange={onchange}
         />
         <Form.Control

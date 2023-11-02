@@ -33,8 +33,12 @@ const App = () => {
           <Col md={3} className="">
             <h2>Agregar colaborador</h2>
             {/* Crear componente Formulario */}
-            <Formulario setAlert={setAlert} />
-            <Alert>{alert.mensaje}</Alert>
+            <Formulario
+              setAlert={setAlert}
+              setColaboradores={setColaboradores}
+              colaboradores={colaboradores}
+            />
+            {alert.mensaje !== "" && <Alert>{alert.mensaje}</Alert>}
           </Col>
         </Row>
       </div>

@@ -1,9 +1,13 @@
 import { Row, Col } from "react-bootstrap";
+import { Listado } from "./components/listado/Listado";
 // obtener data de archivo baseColaboradores
-// almacenar data
-// pasarla a componente Listado y renderizar
+import { baseColaboradores } from "./db/BaseColaboradores";
+import { useState } from "react";
 
 const App = () => {
+  // almacenar data en un hook
+  const [colaboradores, setColaboradores] = useState(baseColaboradores); // []
+
   return (
     <>
       <div className="mx-4">
@@ -17,7 +21,7 @@ const App = () => {
         <Row>
           <Col sm={12} md={9}>
             {/* Crear componente Listado */}
-            <h1>Listado</h1>
+            <Listado colaboradores={colaboradores} />
           </Col>
           <Col md={3} className="">
             <h2>Agregar colaborador</h2>
